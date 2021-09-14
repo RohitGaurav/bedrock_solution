@@ -1,5 +1,4 @@
 
 <launch>
-    
     <test test-name="unit_test_node" pkg="solution" type="test_node"/>
 </launch>

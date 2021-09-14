@@ -11,12 +11,17 @@ class node {
   double _publish_freq;
   ros::Publisher _pub;
   ros::ServiceServer toggle_srv;
-  bool _toggle_pub;
+  bool _publish_state;  // true = start publish ; false = stop publish
  public:
   node(ros::NodeHandle *nh, ros::NodeHandle *nh2);
+  node() {
+      set_publish_state(false);
+  }
   bool toggle_callback(std_srvs::SetBool::Request &req, std_srvs::SetBool::Response &res);
   void toggle_publisher();
   void run();
+  bool get_publish_state();
+  void set_publish_state(bool state);
 };
 
 #endif  // SOLUTION_H
